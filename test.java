@@ -11,6 +11,8 @@ public class test implements ActionListener {
     private JButton play;
     private JButton exit;
     private JTextArea pregunta;
+    private int vidaPlayer = 10;
+    private int vidaBoss = 5;
     private final String[] respuestasFacil = {"a", "c", "c", "c", "d"};
     private final String[] respuestasMedio = {"c", "b", "b", "a", "d", "a", "d", "b", "a", "d"};
     private final String[] respuestasChayanne = {"a"};
@@ -182,7 +184,11 @@ public class test implements ActionListener {
                         "c. Detective Conan\n" +
                         "d. Sazae-san\n"};
 
-
+        if (i == 5){
+            JOptionPane.showMessageDialog(null,"Ganaste");
+            System.exit(0);
+            return null;
+        }
         return bancoF[i];
         //Escribir las preguntas y que el entero nos regrese la pregunta de la posición iesima para luego en el main
         //utilizar un for con el fin de que nos pase las preguntas.
@@ -198,28 +204,70 @@ public class test implements ActionListener {
             if((respuestasFacil[i].compareTo("a")) == 0){
                 i++;
                 pregunta.setText(añadirFacil(i));
-
+                vidaBoss--;
             }
+            else {
+                vidaPlayer--;
+                if (vidaPlayer == 0){
+                    JOptionPane.showMessageDialog(null,"Perdiste");
+                    System.exit(0);
+                }else{
+                    i++;
+                    pregunta.setText(añadirFacil(i));
+                }
+            }
+            System.out.println("Vida del jugador: " + vidaPlayer + "\nVida del boss: " + vidaBoss);
         }
         if (e.getSource()==b){
             if((respuestasFacil[i].compareTo("b")) == 0){
                 i++;
                 pregunta.setText(añadirFacil(i));
+                vidaBoss--;
             }else {
-                JOptionPane.showMessageDialog(null,"Eres un pendejo bob");
+                vidaPlayer--;
+                if (vidaPlayer == 0){
+                    JOptionPane.showMessageDialog(null,"Perdiste");
+                    System.exit(0);
+                }else{
+                    i++;
+                    pregunta.setText(añadirFacil(i));
+                }
             }
+            System.out.println("Vida del jugador: " + vidaPlayer + "\nVida del boss: " + vidaBoss);
         }
         if (e.getSource()==c){
             if((respuestasFacil[i].compareTo("c")) == 0){
                 i++;
                 pregunta.setText(añadirFacil(i));
+                vidaBoss--;
+            }else {
+                vidaPlayer--;
+                if (vidaPlayer == 0){
+                    JOptionPane.showMessageDialog(null,"Perdiste");
+                    System.exit(0);
+                }else{
+                    i++;
+                    pregunta.setText(añadirFacil(i));
+                }
             }
+            System.out.println("Vida del jugador: " + vidaPlayer + "\nVida del boss: " + vidaBoss);
         }
         if (e.getSource()==d){
             if((respuestasFacil[i].compareTo("d")) == 0){
                 i++;
                 pregunta.setText(añadirFacil(i));
+                vidaBoss--;
+            }else {
+                vidaPlayer--;
+                if (vidaPlayer == 0){
+                    JOptionPane.showMessageDialog(null,"Perdiste");
+                    System.exit(0);
+                }else{
+                    i++;
+                    pregunta.setText(añadirFacil(i));
+                }
             }
+            System.out.println("Vida del jugador: " + vidaPlayer + "\nVida del boss: " + vidaBoss);
         }
     }
 }
@@ -228,9 +276,4 @@ public class test implements ActionListener {
     //array de preguntas 30
     //array(i) = pregunta no i
     //texarea, i es parametro del método
-
-
-
-
-
 
