@@ -4,8 +4,9 @@ public class Jugador {
     private String apodo;
 
 
-
-
+/*
+En terminos de reproducción humano-pokemon...
+*/
 
 
 }
